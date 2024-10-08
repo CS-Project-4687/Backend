@@ -24,7 +24,7 @@ def createTT(q):
             "content": q
         }
     ],
-    model="llama3-8b-8192",
+    model="llama-3.2-90b-text-preview",
     )
     response = []
 
