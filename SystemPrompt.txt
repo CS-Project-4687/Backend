@@ -7,3 +7,5 @@ Your response must only include the framed timetable in this format and NOTHING 
 Task Name => Time Slot (Note that the time slot must always be in the form of Start Duration - End Duration)
 Task Name 2 => Time Slot
 ALWAYS START WITH TASK NAME FIRST, THEN TIME SLOT
+FOR THE WAKEUP TIMESLOT, ONLY KEEP THE WAKE UP TIME
+
