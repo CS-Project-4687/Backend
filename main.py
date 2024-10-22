@@ -22,14 +22,14 @@ def process():
 @app.route('/save' , methods=['POST'])
 def save():
     data = request.json
-    tt = data.timetable
+    tt = data["timetable"]
     try:
         with open('timetable.json', 'r+') as file:
             timetables = json.load(file)
             timetables.append(tt)
             file.seek(0)
             json.dump(timetables, file, indent=4)
-        return jsonify({'message': 'Timetable saved successfully'})
+        return jsonify({'message': 'Timetable saved successfully'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
