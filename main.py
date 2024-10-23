@@ -33,5 +33,14 @@ def save():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/get', methods=['GET'])
+def getTT():
+    try:
+        with open('timetable.json', 'r') as file:
+            timetables = json.load(file)
+        return jsonify(timetables), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 if __name__ == '__main__':
     app.run()
