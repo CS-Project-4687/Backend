@@ -25,7 +25,7 @@ def process():
 def save():
     data = request.json
     tt = data["timetable"]
-    item = { "date": f"Time Table {datetime.now().isoformat().split("T")[0]}_{str(time.time()).split(".")[0]}", "timetable": tt }
+    item = { "date": f"Time Table {datetime.now().isoformat().split("T")[0]}_{str(time.time()).split(".")[0]}", "unixID": str(time.time()).split(".")[0], "timetable": tt }
     try:
         with open('timetable.json', 'r+') as file:
             timetables = json.load(file)
