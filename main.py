@@ -5,6 +5,7 @@ app = Flask(__name__)
 CORS(app)
 import json
 import os
+from datetime import datetime
 
 if not os.path.exists('timetable.json'):
     with open('timetable.json', 'w') as file:
@@ -23,10 +24,11 @@ def process():
 def save():
     data = request.json
     tt = data["timetable"]
+    item = { "date": datetime.now().isoformat(), "timetable": tt }
     try:
         with open('timetable.json', 'r+') as file:
             timetables = json.load(file)
-            timetables.append(tt)
+            timetables.append(item)
             file.seek(0)
             json.dump(timetables, file, indent=4)
         return jsonify({'message': 'Timetable saved successfully'}), 200
