@@ -6,6 +6,7 @@ CORS(app)
 import json
 import os
 from datetime import datetime
+import time
 
 if not os.path.exists('timetable.json'):
     with open('timetable.json', 'w') as file:
@@ -24,7 +25,7 @@ def process():
 def save():
     data = request.json
     tt = data["timetable"]
-    item = { "date": datetime.now().isoformat(), "timetable": tt }
+    item = { "date": f"Time Table {datetime.now().isoformat().split("T")[0]}_{str(time.time()).split(".")[0]}", "timetable": tt }
     try:
         with open('timetable.json', 'r+') as file:
             timetables = json.load(file)
